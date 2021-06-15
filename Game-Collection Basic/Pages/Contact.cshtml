@@ -1,0 +1,20 @@
+﻿@page
+@model ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+<h2>@ViewData["Title"]</h2>
+<img style="float: right; margin:-60px 80px 50px 0px;" src="~/images/img6.png" width="550" height="550">
+<h3>@Model.Message</h3>
+
+<address>
+    This is just a test project<br />
+    test 43 39112 Magdeburg<br />
+    <abbr title="Phone">P:</abbr>
+    123456789
+</address>
+
+<address>
+    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>

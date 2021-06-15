@@ -1,0 +1,70 @@
+﻿@page
+@model TestProjekt.Pages.IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="GameGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        Title: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GL_Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GL_Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GL_Plattform)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GL_ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game[0].GL_Price)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Game)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GL_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GL_Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GL_Plattform)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GL_ReleaseDate)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.GL_Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GL_ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GL_ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GL_ID">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
